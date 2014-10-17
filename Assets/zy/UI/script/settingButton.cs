@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class settingButton : MonoBehaviour {
+public class SettingButton : MonoBehaviour {
 
 	public GameObject camera;
 	// Use this for initialization
