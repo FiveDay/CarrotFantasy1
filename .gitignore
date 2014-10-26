@@ -1,11 +1,20 @@
+# ---------------[ Unity generated ]------------------ #
+
 *.meta
 *.bin
 *.csproj
 *.sln
 *.userprefs
 *.unity
+*.unityproj
 
 /metadata
 /Temp
 /Library
 /ProjectSettings
+
+# ---------------[ Unity generated ]------------------ #
+/Temp
+/obj
+/UnityGenerated
+/Library
