@@ -37,6 +37,7 @@ public class TowerCreator : MonoBehaviour {
 	public void ChangeState(States newState) {
 		fsm.ChangeState (newState);
 	}
+	//callback function
 	public void ChangeToInitState() {
 		fsm.ChangeState (States.Init);
 	}
