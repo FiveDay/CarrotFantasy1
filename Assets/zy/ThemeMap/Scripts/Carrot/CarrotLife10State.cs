@@ -27,6 +27,7 @@ public class CarrotLife10State : FSMState<Carrot, Carrot.States> {
 				if(gameObj == this.entity.gameObject) {
 					Animator animator = this.entity.GetComponent<Animator> ();
 					animator.Play("CarrotShake");
+					animator.Play("CarrotSwing",1);
 				}
 			}
 		}
