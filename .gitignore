@@ -1,16 +1,6 @@
 # ---------------[ Unity generated ]------------------ #
 
-*.bin
-*.csproj
-*.sln
-*.userprefs
-*.unityproj
-
-/metadata
-/Temp
-/Library
 /ProjectSettings
-
 # ---------------[ Unity generated ]------------------ #
 /Temp
 /obj
