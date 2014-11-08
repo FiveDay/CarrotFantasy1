@@ -1,11 +1,9 @@
 # ---------------[ Unity generated ]------------------ #
 
-*.meta
 *.bin
 *.csproj
 *.sln
 *.userprefs
-*.unity
 *.unityproj
 
 /metadata
