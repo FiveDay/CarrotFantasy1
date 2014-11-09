@@ -17,7 +17,7 @@ public class CarrotLife6State : FSMState<Carrot, Carrot.States> {
 	
 	public override void Execute ()
 	{
-		Animator animator = this.entity.GetComponent<Animator> ();
+//		Animator animator = this.entity.GetComponent<Animator> ();
 //		if (!animator.GetCurrentAnimatorStateInfo (0).IsName ("CarrotShake")) {
 //			this.entity.ChangeState(Carrot.States.life10);
 //		}

@@ -15,7 +15,7 @@ public class Monsters01_01 : MonoBehaviour {
 	}
 
 	void StartUpMonsterOfFirstWave(){
-		GameObject monster01 = (GameObject)this.Instantiate (monster);
+		GameObject monster01 = GameObject.Instantiate (monster) as GameObject;
 		Animator animator = monster01.GetComponent<Animator> ();
 		animator.Play ("Monsters01_01",0);
 		animator.Play ("Theme01Bg1Road", 1);
