@@ -26,18 +26,9 @@ public class SmallBullet : MonoBehaviour {
 	void Update () {
 		float amtToMove = bulletSpeed * Time.deltaTime;
 
-		//Vector3.
-
-		//bulletTransform.Translate(Vector3.right * amtToMove));
-		bulletTransform.position = new Vector3 (bulletTransform.position.x + amtToMove * Mathf.Cos(angle), //1/Mathf.Tan(angle),
-		                                        bulletTransform.position.y + amtToMove * Mathf.Sin(angle),//Mathf.Tan(angle),
+		bulletTransform.position = new Vector3 (bulletTransform.position.x + amtToMove * Mathf.Cos(angle),
+		                                        bulletTransform.position.y + amtToMove * Mathf.Sin(angle),
 		                                        bulletTransform.position.z);
-		
-//		if(transform.position.x > 4.3)
-//		{
-//			Destroy(this.gameObject);
-//			Debug.Log ("===========bullet Destroy========");
-//		}
 	}
 
 	//推迟更新，在Update()方法执行完后调用，同样每一帧都调用
@@ -65,12 +56,12 @@ public class SmallBullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		Debug.Log("bullet-collision");
+		Debug.Log("bullet-collision,file:smallbullet.cs,OnTriggerEnter2D");
 		if(col.gameObject.tag == "backgroundTag"){
-			Debug.Log ("===========bullet Destroy========");
+			Debug.Log ("===========bullet Destroy========,file:smallbullet.cs");
 			Destroy(this.gameObject);
 		} else if (col.gameObject.tag == "EnemyTag"){
-			Debug.Log ("===========!!!!!!!!bullet Destroy by attack a **enemy** !!!!!========");
+			Debug.Log ("===========!!!!!!!!bullet Destroy by attack a **enemy** !!!!!========,file:smallbullet.cs");
 			Destroy(this.gameObject);
 			col.gameObject.SendMessage("reduceBlood",attackValue,SendMessageOptions.RequireReceiver);
 		}
@@ -79,7 +70,7 @@ public class SmallBullet : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col)
 	{
 		if (col.gameObject.tag == "Attacker"){
-			Debug.Log ("===========.....bullet Destroy by Attacker ...========");
+			Debug.Log ("===========.....bullet Destroy by Attacker ...========,file:smallbullet.cs,OnTriggerExit2D");
 			Destroy(this.gameObject);
 		} 
 	}
@@ -87,9 +78,9 @@ public class SmallBullet : MonoBehaviour {
 	//触发信息检测：
 	
 	//1:当进入触发器
-	void OnTriggerEnter( Collider other ) {
-		Debug.Log("bullet-collision");
-	}
+//	void OnTriggerEnter( Collider other ) {
+//		Debug.Log("bullet-collision,file:smallbullet.cs,OnTriggerEnter");
+//	}
 	
 	//2:当退出触发器
 	//void OnTriggerExit( Collider other ) {

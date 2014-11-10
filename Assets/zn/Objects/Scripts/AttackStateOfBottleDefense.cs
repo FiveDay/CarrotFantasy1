@@ -16,6 +16,8 @@ public class AttackStateOfBottleDefense : FSMState<BottleDefense,BottleDefense.S
 	{
 		Animator anim = this.entity.GetComponent<Animator>();
 
+
+
 		int iLevel = this.entity.bottleLevel;
 		switch(iLevel)
 		{
@@ -31,11 +33,22 @@ public class AttackStateOfBottleDefense : FSMState<BottleDefense,BottleDefense.S
 			Debug.Break();
 			break;
 		}
-
 	}
 
 	public override void Execute()
 	{
+		GameObject enemy = this.entity.enemyArray[0] as GameObject;
+				
+		Vector3 targetVector = this.entity.gameObject.transform.position - this.entity.vecOld;
+		var forward = this.entity.gameObject.transform.forward;
+		var angle = Vector3.Angle(targetVector, forward);
+		
+		SpriteRenderer myspriteRender = this.entity.gameObject.GetComponent<SpriteRenderer>();
+		myspriteRender.transform.Rotate(0,0,/*180-angle * 180.0f/Mathf.PI*/-1);
+
+
+
+
 		this.entity.SendMessage("createBullet");
 	}
 }

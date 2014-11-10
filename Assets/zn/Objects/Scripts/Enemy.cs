@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour {
 
 		if (enemyBloodCount <= 0)
 		{
-			Destroy(this.gameObject);
+			//in use,delete for test.
+		//	Destroy(this.gameObject);
 		}
 	}
 
