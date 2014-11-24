@@ -31,7 +31,10 @@ public class FiniteStateMachine <T,U> {
 
 	public void  ChangeState(FSMState<T,U> NewState) {	
 		PreviousState = CurrentState;
-		
+
+		if (PreviousState == NewState)
+			return;
+
 		if (CurrentState != null)
 			CurrentState.Exit();
 		
