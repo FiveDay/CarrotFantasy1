@@ -8,12 +8,14 @@ public class TowerCreator : MonoBehaviour {
 		Idle,
 		Add,
 		Delete,
+		Delete2,
 	};
 	//By making these public properties, and using [System.Serializable] in the state classes, these will now appear in the inspector
 	protected TowerCreatorStateIdle stateIdle = new TowerCreatorStateIdle();
 	protected TowerCreatorStateInit stateInit = new TowerCreatorStateInit();
 	protected TowerCreatorStateAdd  stateAdd = new TowerCreatorStateAdd();
 	protected TowerCreatorStateDelete  stateDelete = new TowerCreatorStateDelete();
+	protected TowerCreatorStateDelete2  stateDelete2 = new TowerCreatorStateDelete2();
 
 	//The referecne to our state machine
 	private FiniteStateMachine<TowerCreator, TowerCreator.States> fsm;
@@ -26,6 +28,7 @@ public class TowerCreator : MonoBehaviour {
 		fsm.RegisterState(stateIdle);
 		fsm.RegisterState(stateAdd);
 		fsm.RegisterState(stateDelete);
+		fsm.RegisterState(stateDelete2);
 
 	}
 

@@ -44,9 +44,8 @@ public class AttackStateOfBottleDefense : FSMState<BottleDefense,BottleDefense.S
 		Vector3 dir = enemy.transform.position - weaponBottle.transform.position;
 
 		float angle = Vector3.Angle(Vector3.right, dir);
-		Debug.Log (angle);
 		changeToRotation.eulerAngles = new Vector3 (0, 0, angle);
-		float step = 100.0f;
-		weaponBottle.transform.rotation = Quaternion.RotateTowards(weaponBottle.transform.rotation, changeToRotation, step*Time.deltaTime);
+		float speed = 100.0f;
+		weaponBottle.transform.rotation = Quaternion.RotateTowards(weaponBottle.transform.rotation, changeToRotation, speed*Time.deltaTime);
 	}
 }

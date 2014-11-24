@@ -21,6 +21,7 @@ public class IdleStateOfBottleDefense : FSMState<BottleDefense,BottleDefense.Sta
 		{
 		case 1:
 			anim.Play ("BottleIdle");
+			anim.Play("BulletMngIdle", 1);
 			break;
 		case 2:
 			anim.Play ("Level2BottleIdle");

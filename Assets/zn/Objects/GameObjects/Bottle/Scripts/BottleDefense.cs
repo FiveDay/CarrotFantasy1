@@ -95,7 +95,8 @@ public class BottleDefense : MonoBehaviour {
 		//Debug.Log("BottleDefense-out-collision,filename:BottleDefense.cs,OnTriggerExit2D");
 		if (col.gameObject.tag == "EnemyTag"){
 			Debug.Log("==========remove enemyTag=============================");
-			//enemyArray.Remove(col.gameObject);
+			enemyArray.Remove(col.gameObject);
+			this.ChangeState(BottleDefense.StatesOfDefense.IDLE);
 		}
 	}
 

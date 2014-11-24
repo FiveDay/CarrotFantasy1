@@ -19,9 +19,11 @@ public class Tile : MonoBehaviour {
 				if(gameObj == this.gameObject) {
 
 					GameObject obj = GameObject.Find("TowerCreator");
+
 					if(obj != null
 					   && obj.transform.position != this.gameObject.transform.position) {
 						obj.transform.position = this.gameObject.transform.position;
+						obj.SendMessage("ChangeState", TowerCreator.States.Idle);
 						obj.SendMessage("ChangeState", TowerCreator.States.Add);
 					}else if(obj != null
 					         && obj.transform.position == this.gameObject.transform.position) {
