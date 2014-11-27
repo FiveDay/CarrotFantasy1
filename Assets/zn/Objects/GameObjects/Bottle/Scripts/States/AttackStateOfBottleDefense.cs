@@ -38,6 +38,12 @@ public class AttackStateOfBottleDefense : FSMState<BottleDefense,BottleDefense.S
 	public override void Execute()
 	{
 		GameObject enemy = this.entity.enemyArray[0] as GameObject;
+
+		if (enemy == null) {
+			this.entity.ChangeState (BottleDefense.StatesOfDefense.IDLE);
+			return;
+		}
+
 		GameObject weaponBottle = this.entity.weaponBottle;	
 	
 		Quaternion changeToRotation = Quaternion.identity;

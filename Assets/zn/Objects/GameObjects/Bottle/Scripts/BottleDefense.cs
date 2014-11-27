@@ -71,7 +71,7 @@ public class BottleDefense : MonoBehaviour {
 	}
 
 	//Interface function
-	void ChangeState(BottleDefense.StatesOfDefense newState)
+	public void ChangeState(BottleDefense.StatesOfDefense newState)
 	{
 		fsm.ChangeState(newState);
 	}
@@ -79,11 +79,7 @@ public class BottleDefense : MonoBehaviour {
 	//Trigger callback function
 	void OnTriggerEnter2D(Collider2D col)
 	{
-
-		if(col.gameObject.tag == "BulletTag"){
-			//bulletArray[] = col.gameObject;
-			//Debug.Log ("===========BulletTag========");
-		}else if(col.gameObject.tag == "EnemyTag"){
+		 if(col.gameObject.tag == "EnemyTag"){
 			Debug.Log("==========add enemyTag=============================");
 			enemyArray.Add(col.gameObject);
 			this.ChangeState(BottleDefense.StatesOfDefense.ATTACK);
@@ -92,7 +88,6 @@ public class BottleDefense : MonoBehaviour {
 	
 	void OnTriggerExit2D(Collider2D col)
 	{
-		//Debug.Log("BottleDefense-out-collision,filename:BottleDefense.cs,OnTriggerExit2D");
 		if (col.gameObject.tag == "EnemyTag"){
 			Debug.Log("==========remove enemyTag=============================");
 			enemyArray.Remove(col.gameObject);

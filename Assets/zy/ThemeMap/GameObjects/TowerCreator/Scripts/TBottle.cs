@@ -5,6 +5,7 @@ public class TBottle : MonoBehaviour {
 
 	public GameObject bottle;
 	public GameObject cloud;
+	public Transform towerCreatorTransfom;
 	// Use this for initialization
 	void Start () {
 	
@@ -21,6 +22,7 @@ public class TBottle : MonoBehaviour {
 				GameObject gameObj = hitInfo.collider.gameObject;
 				if(gameObj == this.gameObject) {
 
+					cloud.transform.position = towerCreatorTransfom.position;
 					Animator cloudAnimator = cloud.GetComponent<Animator>();
 					cloudAnimator.Play("Cloud");
 

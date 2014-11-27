@@ -35,7 +35,6 @@ public class CarrotLife10State : FSMState<Carrot, Carrot.States> {
 	}
 	
 	public override void Exit () {
-		Animator animator = this.entity.GetComponent<Animator> ();
-		animator.StopPlayback ();
+
 	}
 }

@@ -32,14 +32,10 @@ public class SmallBullet : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D col)
 	{
-//		if(col.gameObject.tag == "backgroundTag"){
-//			Debug.Log ("===========bullet Destroy========,file:smallbullet.cs");
-//			//Destroy(this.gameObject);
-//		} else if (col.gameObject.tag == "EnemyTag"){
-//			Debug.Log ("===========!!!!!!!!bullet Destroy by attack a **enemy** !!!!!========,file:smallbullet.cs");
-//			//Destroy(this.gameObject);
-//		//	col.gameObject.SendMessage("reduceBlood",attackValue,SendMessageOptions.RequireReceiver);
-//		}
+		if (col.tag == "EnemyTag"){
+			Destroy(this.gameObject);
+		}
+
 	}
 
 	void OnTriggerExit2D(Collider2D col)

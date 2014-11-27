@@ -21,6 +21,6 @@ public class ThemeMapManager : MonoBehaviour {
 	
 	void OnTriggerExit2D(Collider2D col)
 	{
-		Destroy(col.gameObject);
+		Destroy (col.gameObject);
 	}
 }

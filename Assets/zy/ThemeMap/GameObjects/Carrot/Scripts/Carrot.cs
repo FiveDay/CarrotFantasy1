@@ -8,6 +8,10 @@ public class Carrot : MonoBehaviour {
 		
 	public int indexOfLife = 10-1;
 
+
+	public GameObject cloud;
+	public Transform carrotTransform;
+
 	public enum States{
 		life10,
 		life7,
@@ -45,12 +49,67 @@ public class Carrot : MonoBehaviour {
 
 		//init State
 		fsm.ChangeState (life10State);
+
+		cloud = GameObject.Instantiate (cloud) as GameObject;
+		cloud.transform.position = carrotTransform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (indexOfLife < 0) {
+			Destroy(this.gameObject);
+			return;
+		}
 		life.GetComponent<SpriteRenderer> ().sprite = lifeSprites [indexOfLife];
 		fsm.Update ();
+	}
+
+	//Trigger callback function
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.tag == "EnemyTag") {
+			Debug.Log("Carrot trigger enter");
+			indexOfLife--;
+
+
+			Animator cloudAnimator = cloud.GetComponent<Animator>();
+			cloudAnimator.Play("Cloud");
+			
+			AudioSource aud = cloud.GetComponent<AudioSource>();
+			aud.Play();
+
+			switch(indexOfLife+1){
+			case 10:
+			case 9:
+			case 8:
+				fsm.ChangeState (States.life10);
+				break;
+			case 7:
+				fsm.ChangeState (States.life7);
+				break;
+			case 6:
+				fsm.ChangeState (States.life6);
+				break;
+			case 5:
+				fsm.ChangeState (States.life5);
+				break;
+			case 4:
+				fsm.ChangeState (States.life4);
+				break;
+			case 3:
+				fsm.ChangeState (States.life3);
+				break;
+			case 2:
+				fsm.ChangeState (States.life2);
+				break;
+			case 1:
+				fsm.ChangeState (States.life1);
+				break;
+
+			default:
+				break;
+			}
+		}
 	}
 
 	//interface function

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Monsters01_01 : MonoBehaviour {
+public class MonstersMng : MonoBehaviour {
 
 	public GameObject monster;
 	// Use this for initialization
@@ -17,7 +17,7 @@ public class Monsters01_01 : MonoBehaviour {
 	void StartUpMonsterOfFirstWave(){
 		GameObject monster01 = GameObject.Instantiate (monster) as GameObject;
 		Animator animator = monster01.GetComponent<Animator> ();
-		animator.Play ("Monsters01_01",0);
-		animator.Play ("Theme01Bg1Road", 1);
+		animator.Play ("Fly",0);
+		animator.Play ("Road", 1);
 	}
 }
