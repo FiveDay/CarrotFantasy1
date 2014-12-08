@@ -7,7 +7,7 @@ public class SmallBullet : MonoBehaviour {
 
 
 
-	public float bulletSpeed = 10.0f;
+	public float bulletSpeed = 5.0f;
 	public int attackValue = 1;
 	private float angle = 0.0f;	
 	

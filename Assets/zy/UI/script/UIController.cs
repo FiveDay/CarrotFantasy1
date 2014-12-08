@@ -35,6 +35,11 @@ public class UIController : MonoBehaviour {
 	}
 
 	//action function
+	public void LevelBack()
+	{
+		stage.SetActive (true);
+		level.SetActive (false);
+	}
 	public void SelectLevel(GameObject item)
 	{
 		Application.LoadLevel(1) ;
