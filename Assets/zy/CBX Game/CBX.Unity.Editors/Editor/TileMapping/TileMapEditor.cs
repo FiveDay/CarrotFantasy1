@@ -51,9 +51,17 @@ namespace CBX.Unity.Editors.Editor
                     }
                     else if (current.button == 0)
                     {
-                        // if left mouse button is pressed then we draw blocks
-                        this.Draw();
-                        current.Use();
+                        if (current.shift)
+                        {
+                            this.RoadTileDraw();
+                            current.Use();
+                        }
+                        else
+                        {
+                            // if left mouse button is pressed then we draw blocks
+                            this.Draw();
+                            current.Use();
+                        }
                     }
                 }
             }
@@ -63,6 +71,50 @@ namespace CBX.Unity.Editors.Editor
             GUI.Label(new Rect(10, Screen.height - 90, 100, 100), "LMB: Draw");
             GUI.Label(new Rect(10, Screen.height - 105, 100, 100), "RMB: Erase");
             Handles.EndGUI();
+        }
+
+        private void RoadTileDraw()
+        {
+            // get reference to the TileMap component
+            var map = (TileMap)this.target;
+
+            // Calculate the position of the mouse over the tile layer
+            var tilePos = this.GetTilePositionFromMouseLocation();
+
+            // Given the tile position check to see if a tile has already been created at that location
+            var objcet = GameObject.Find(string.Format("RoadTile_{0}_{1}", tilePos.x, tilePos.y));
+
+            // if there is already a tile present and it is not a child of the game object we can just exit.
+            if (objcet != null && objcet.transform.parent != map.transform)
+            {
+                return;
+            }
+
+            // if no game object was found we will create a cube
+            if (objcet == null)
+            {
+                //cube = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                objcet = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            }
+
+            // set the cubes position on the tile map
+            var tilePositionInLocalSpace = new Vector3((tilePos.x * map.TileWidth) + (map.TileWidth / 2), (tilePos.y * map.TileHeight) + (map.TileHeight / 2));
+            objcet.transform.position = map.transform.position + tilePositionInLocalSpace;
+
+            // we scale the cube to the tile size defined by the TileMap.TileWidth and TileMap.TileHeight fields 
+            objcet.transform.localScale = new Vector3(map.TileWidth, map.TileHeight, 1);
+
+            // set the cubes parent to the game object for organizational purposes
+            objcet.transform.parent = map.transform;
+
+            //objcet.AddComponent("RoadTile");
+
+            // give the cube a name that represents it's location within the tile map
+            objcet.name = string.Format("RoadTile_{0}_{1}", tilePos.x, tilePos.y);
+
+            objcet.renderer.sharedMaterial = new Material(Shader.Find("Sprites/Default"));
+            objcet.renderer.sharedMaterial.color = new Color(1.0F, 0.0F, 0.0F, 0.3F);
+
         }
 
         /// <summary>
@@ -118,7 +170,6 @@ namespace CBX.Unity.Editors.Editor
 
 			objcet.renderer.sharedMaterial = new Material (Shader.Find("Sprites/Default"));
 			objcet.renderer.sharedMaterial.color = new Color (0.0F, 1.0F, 0.0F, 0.3F);
-
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿namespace CBX.TileMapping.Unity
 {
     using UnityEngine;
+    using System.Collections;
 
     /// <summary>
     /// Provides a component for tile mapping.
@@ -28,12 +29,16 @@
         /// </summary>
         public float TileHeight = 1;
 
+        public Transform[] RoadTiles;
+
         /// <summary>
         /// Used by editor components or game logic to indicate a tile location.
         /// </summary>
         /// <remarks>This will be hidden from the inspector window. See <see cref="HideInInspector"/></remarks>
         [HideInInspector]
         public Vector3 MarkerPosition;
+
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TileMap"/> class.

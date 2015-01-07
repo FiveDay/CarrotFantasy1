@@ -16,8 +16,8 @@ public class MonstersMng : MonoBehaviour {
 
 	void StartUpMonsterOfFirstWave(){
 		GameObject monster01 = GameObject.Instantiate (monster) as GameObject;
-		Animator animator = monster01.GetComponent<Animator> ();
-		animator.Play ("Fly",0);
-		animator.Play ("Road", 1);
+
+        Monsters monsterBeh = monster01.GetComponent<Monsters>();
+        monsterBeh.StartAttack();
 	}
 }
