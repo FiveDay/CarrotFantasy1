@@ -62,7 +62,6 @@ public class Monsters : MonoBehaviour {
         //让模型开始寻路
         iTween.MoveTo(gameObject, args);
 
-
         Animator animator = this.GetComponent<Animator>();
         animator.Play("Fly", 0);
     }
