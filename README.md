@@ -3,6 +3,6 @@ CarrotFantasy1
 
 unity3d game
 
- ![image](https://github.com/FiveDay/CarrotFantasy1/screenshots/1.png)
- ![image](https://github.com/FiveDay/CarrotFantasy1/screenshots/2.png)
- ![image](https://github.com/FiveDay/CarrotFantasy1/screenshots/3.png)
+ ![](https://github.com/FiveDay/CarrotFantasy1/blob/master/screenshots/1.png)
+ ![](https://github.com/FiveDay/CarrotFantasy1/blob/master/screenshots/2.png)
+ ![](https://github.com/FiveDay/CarrotFantasy1/blob/master/screenshots/3.png)
